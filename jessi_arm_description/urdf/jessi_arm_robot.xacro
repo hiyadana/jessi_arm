@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!-- Jessi Arm Chain -->
+<robot name="jessi_arm" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Import Rviz colors -->
+  <xacro:include filename="$(find jessi_arm_description)/urdf/materials.xacro" />
+
+  <!-- Import all Gazebo-customization elements, including Gazebo colors -->
+  <!-- <xacro:include filename="$(find jessi_arm_description)/urdf/jessi_arm.gazebo.xacro" /> -->
+
+  <!-- Import Transmission -->
+  <!-- <xacro:include filename="$(find jessi_arm_description)/urdf/jessi_arm.transmission.xacro" /> -->
+
+  <!-- Import URDF -->
+  <xacro:include filename="$(find jessi_arm_description)/urdf/jessi_arm.xacro" />
+
+  <!-- World -->
+  <link name="world"/>
+
+  <!-- World fixed joint-->
+  <joint name="world_fixed" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
+
+</robot>
